@@ -7,5 +7,9 @@
       "default_popup": "index.html",
       "default_icon": "./assets/icon.png"
     },
-    "permissions": ["activeTab"]
+    "background": {
+      "service_worker" : "background.js"
+    },
+    "host_permissions":["<all_urls>"],
+    "permissions": ["activeTab","scripting"]
   }
