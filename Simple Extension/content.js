@@ -9,46 +9,51 @@ const getDetails = ()=>{
 }
 
 
-const getContactInfo = (index)=>{
+const getContactInfo = ()=>{
     
     return new Promise((resolve,reject)=>{
 
+    
     document.getElementById("top-card-text-details-contact-info").click()
-    let contactInfo = ''
+
+
+    
+    let contactInfo = {
+        linkedIn: "",
+        email: "",
+    }
 
     setTimeout(()=>{
         try {
-            contactInfo = document.getElementsByClassName("artdeco-modal__content")[0].getElementsByClassName("pv-contact-info__ci-container")[index].querySelector("a").innerHTML.replace(/\s/g, '')
-            console.log(contactInfo)
+            // Get Data
+            contactInfo.linkedIn = document.getElementsByClassName("artdeco-modal__content")[0].getElementsByClassName("pv-contact-info__ci-container")[0].querySelector("a").innerHTML.replace(/\s/g, '')
+            contactInfo.email = document.getElementsByClassName("artdeco-modal__content")[0].getElementsByClassName("pv-contact-info__ci-container")[1].querySelector("a").innerHTML.replace(/\s/g, '')
+
+            // Return Data
             resolve(contactInfo)
+
+            // Close the Modal
             document.getElementsByClassName("artdeco-modal__dismiss")[0].click()
         } catch (error) {
-            console.log(contactInfo)
-            reject("Failed to Retrive Data")
+            document.getElementsByClassName("artdeco-modal__dismiss")[0].click()
+            reject(contactInfo) 
         }
-        
-    },2000)
+      
+    },5000)
 
 })}
 
 
 const logUserData = async ()=>{
 
-    const email = await getContactInfo(1)
+    const contacts = await getContactInfo()
         .then(data => {return data})
-        .catch(error => {return ""})
-
-    const test = await getContactInfo(0)
-        .then(data => {return data})
-        .catch(error => {return ""})
+        .catch(error => {return error})
 
     const userInfo = {
             name: getDetails().userName,
             place: getDetails().place,
-            contactDetails: {
-                linkedIn: test,
-                userEmail: email
-            }
+            contactDetails: contacts
         }
 
     console.log(userInfo)
