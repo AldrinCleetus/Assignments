@@ -12,7 +12,7 @@ interface Article{
 
 const Article = (props:Article) => {
     return ( 
-        <div className="   xl:mx-60  md:mx-16 md:mt-4 flex flex-row lg:justify-between sm:justify-between md:gap-5 ">
+        <div className="xl:mx-60  md:mx-16 md:mt-4 flex flex-row lg:justify-between sm:justify-between md:gap-5 ">
             <div className="  flex flex-col gap-2 xl:text-[19px]">
             <img src="trees.jpg" alt="trees"  className="h-[220px] w-full object-cover object-middle"/>
             <p className="text-black mt-2 mx-3 font-semibold ">{props.type}</p>
