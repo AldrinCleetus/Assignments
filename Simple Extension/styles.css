@@ -30,6 +30,16 @@ button:hover{
     transition: all 0.2s ease-in-out;
 }
 
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+button.enabled {
+    background-color: #00cc00;
+}
+
 #title{
     color: white;
     border: solid 2px white;
@@ -40,3 +50,21 @@ button:hover{
 .inActive{
     display: none;
 }
+
+input {
+    /* Add some general styling to all input fields */
+    width: 250px;
+    height: 35px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+input:focus {
+/* Add a highlight effect when the input field is focused */
+border-color: #333;
+outline: none;
+}
+

@@ -11,5 +11,5 @@
       "service_worker" : "background.js"
     },
     "host_permissions":["<all_urls>"],
-    "permissions": ["activeTab","scripting"]
+    "permissions": ["activeTab","scripting","tabs"]
   }
